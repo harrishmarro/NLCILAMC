@@ -1,0 +1,151 @@
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Smart AMC (NLC)</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-raised-button color="warn" (click)="openDialog()">Add Data</button>
+  </mat-toolbar>
+  <div class = "container">
+    <div style="margin-top: 10px">
+      <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="refId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> RID </th>
+            <td mat-cell *matCellDef="let row">{{row.refId}}</td>
+          </ng-container>
+      
+          <!-- Progress Column -->
+          <ng-container matColumnDef="tenderNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>TNO</th>
+            <td mat-cell *matCellDef="let row"> {{row.tenderNo}}</td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="tenderDescription">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>TDESC</th>
+            <td mat-cell *matCellDef="let row">{{row.tenderDescription}}</td>
+          </ng-container>
+      
+          <!-- Fruit Column -->
+          <ng-container matColumnDef="modeOfTender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>MODE</th>
+            <td mat-cell *matCellDef="let row">{{row.modeOfTender}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tenderValue">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>VALUE</th>
+            <td mat-cell *matCellDef="let row">{{row.tenderValue}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tenderFloatedOn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>FLOATEDON</th>
+            <td mat-cell *matCellDef="let row">{{row.tenderFloatedOn}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tenderOpenedOn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>OPENEDON</th>
+            <td mat-cell *matCellDef="let row">{{row.tenderOpenedOn}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="awardNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ANO</th>
+            <td mat-cell *matCellDef="let row">{{row.awardNo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="awardedOn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>AWARDEDON</th>
+            <td mat-cell *matCellDef="let row">{{row.awardedOn}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="awardedFirmName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>FNAME</th>
+            <td mat-cell *matCellDef="let row">{{row.awardedFirmName}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="awardedAddress">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ADDRESS</th>
+            <td mat-cell *matCellDef="let row">{{row.awardedAddress}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="awardedFirmSapVendorCode">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>SAPCODE</th>
+            <td mat-cell *matCellDef="let row">{{row.awardedFirmSapVendorCode}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="awardedValue">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>AVALUE</th>
+            <td mat-cell *matCellDef="let row">{{row.awardedValue}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="unitId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>UID</th>
+            <td mat-cell *matCellDef="let row">{{row.unitId}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="unitName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>UNAME</th>
+            <td mat-cell *matCellDef="let row">{{row.unitName}}</td>
+          </ng-container>
+      
+          <ng-container matColumnDef="divisonId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>DID</th>
+            <td mat-cell *matCellDef="let row">{{row.divisonId}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="divisonName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>DNAME</th>
+            <td mat-cell *matCellDef="let row">{{row.divisonName}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="hodName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>HODNAME</th>
+            <td mat-cell *matCellDef="let row">{{row.hodName}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="hodContactnoNLC">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>CONT.NLC</th>
+            <td mat-cell *matCellDef="let row">{{row.hodContactnoNLC}}</td>
+          </ng-container>
+
+          <!-- <ng-container matColumnDef="hodContactnoMob">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>CONT.MOB</th>
+            <td mat-cell *matCellDef="let row">{{row.hodContactnoMob}}</td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTION</th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-icon-button (click)="editData(row)" color ="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteData(row.id)"color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+      
+    </div>
+  </div>

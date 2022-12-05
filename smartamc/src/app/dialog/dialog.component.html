@@ -1,0 +1,113 @@
+<h1 mat-dialog-content>Add New Data</h1>
+<div mat-dialog-content>
+  <form [formGroup]="dataForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Ref Id</mat-label>
+      <input formControlName="refId" matInput placeholder="Enter Referential Id">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Tender No</mat-label>
+        <input formControlName="tenderNo" matInput placeholder="Enter Tender No">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="tenderDescription" matInput placeholder="Enter Details about tender"></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Mode of Tender</mat-label>
+        <input formControlName="modeOfTender" matInput placeholder="">
+      </mat-form-field>
+  
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Tender Value</mat-label>
+    <input formControlName="tenderValue" matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix style="font-weight:bold;">&#8377;</span>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Tender Floated On</mat-label>
+    <input formControlName="tenderFloatedOn" matInput [matDatepicker]="picker1">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker1">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Tender Opened On</mat-label>
+    <input formControlName="tenderOpenedOn"matInput [matDatepicker]="picker2">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker2">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Award No</mat-label>
+    <input formControlName="awardNo" matInput type="string" class="example-right-align" placeholder="">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Awarded on</mat-label>
+    <input formControlName="awardedOn"matInput [matDatepicker]="picker3">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker3">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Awarded Firm Name</mat-label>
+      <input formControlName="awardedFirmName"matInput>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Awarded Address</mat-label>
+    <textarea  formControlName="awardedAddress"required maxlength="30" matInput placeholder="Ex. 100 Main St"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Awarded Firm SAP vendor code</mat-label>
+    <input formControlName="awardedFirmSapVendorCode" matInput type="number" class="example-right-align" placeholder="Enter the eight digit number">
+  </mat-form-field>
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Awarded Value</mat-label>
+    <input formControlName="awardedValue" matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix style="font-weight:bold;">&#8377;</span>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Unit id</mat-label>
+    <input formControlName="unitId" matInput type="number" class="example-right-align" placeholder="Enter the Unit Id">
+  </mat-form-field>   
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label maxlength="20">Unit Name</mat-label>
+    <input formControlName="unitName" matInput>
+</mat-form-field>
+<mat-form-field appearance="fill" floatLabel="always">
+  <mat-label >Division id</mat-label>
+  <input formControlName="divisonId" matInput type="number" class="example-right-align" placeholder="Enter the Unit Id">
+</mat-form-field> 
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label maxlength="20">Division Name</mat-label>
+  <input formControlName="divisonName" matInput>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label maxlength="20">HOD Name</mat-label>
+    <input formControlName="hodName" matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>HOD Contact No(NLC)</mat-label>
+      <span matPrefix>+4142 &nbsp;</span>
+      <input formControlName="hodContactnoNLC" type="tel" matInput placeholder="257867">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+   <!--  <mat-form-field>
+    <mat-label>HOD Contact No(Mobile)</mat-label>
+      <span matPrefix>+91 &nbsp;</span>
+      <input formControlName-="hodContactnoMob" type="tel" matInput placeholder="9988776655">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field> -->
+  </form>
+
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addData()">{{actionBtn}}</button>
+</div>

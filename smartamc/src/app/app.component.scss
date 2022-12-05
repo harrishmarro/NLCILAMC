@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  table{
+    width:100%;
+
+  }
+  .mat-form-field{
+    font-size: 14px;
+    width:100%;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  .container{
+    max-height: 3200px;
+    margin:0 auto;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: left;
+    padding-left: 16px;
+    font-size: 20px;
+  }
+  .ragavtab{
+    background-image: url('/src/assets/nlcimg.jpg');
+  }
+  
